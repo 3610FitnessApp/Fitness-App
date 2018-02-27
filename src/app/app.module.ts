@@ -11,6 +11,7 @@ import { AppRouterModule } from './router/router.module';
 import { AboutComponent } from './about/about.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { NewUserFormComponent } from './new-user-form/new-user-form.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
     NotFoundComponent,
     AboutComponent,
     HeaderComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    NewUserFormComponent
   ],
   imports: [
     BrowserModule,
