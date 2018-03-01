@@ -12,6 +12,9 @@ import { AboutComponent } from './about/about.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { NewUserFormComponent } from './new-user-form/new-user-form.component';
+import { NotesComponent } from './notes/notes.component';
+import { WorkoutComponent } from './workout/workout.component';
+import { ExerciseComponent } from './exercise/exercise.component';
 
 
 @NgModule({
@@ -24,7 +27,10 @@ import { NewUserFormComponent } from './new-user-form/new-user-form.component';
     AboutComponent,
     HeaderComponent,
     LoginFormComponent,
-    NewUserFormComponent
+    NewUserFormComponent,
+    NotesComponent,
+    WorkoutComponent,
+    ExerciseComponent,
   ],
   imports: [
     BrowserModule,
