@@ -1,0 +1,3 @@
+C:\Labs\Fitness-App\obj\Debug\netcoreapp2.0\Fisher.Bookstore.csproj.CoreCompileInputs.cache
+C:\Labs\Fitness-App\obj\Debug\netcoreapp2.0\Fisher.Bookstore.AssemblyInfoInputs.cache
+C:\Labs\Fitness-App\obj\Debug\netcoreapp2.0\Fisher.Bookstore.AssemblyInfo.cs
