@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 .login-page {
   width: 360px;
@@ -8,15 +8,15 @@
 .form {
   position: relative;
   z-index: 1;
-  background: #FFFFFF;
+  background: #686766;
   max-width: 360px;
   margin: 0 auto 100px;
   padding: 45px;
   text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+ 
 }
 .form input {
-  font-family: "Roboto", sans-serif;
+  font-family: "Open Sans", sans-serif;
   outline: 0;
   background: #f2f2f2;
   width: 100%;
@@ -27,10 +27,10 @@
   font-size: 14px;
 }
 .form button {
-  font-family: "Roboto", sans-serif;
+  font-family: "Open Sans", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #4CAF50;
+  background: #A2482E;
   width: 100%;
   border: 0;
   padding: 15px;
@@ -41,15 +41,15 @@
   cursor: pointer;
 }
 .form button:hover,.form button:active,.form button:focus {
-  background: #43A047;
+  background: #0B0c10;
 }
 .form .message {
   margin: 15px 0 0;
-  color: #b3b3b3;
+  color: #B7B7B6;
   font-size: 12px;
 }
 .form .message a {
-  color: #4CAF50;
+  color: #FFFFFF;
   text-decoration: none;
 }
 .form .register-form {
@@ -84,17 +84,4 @@
 .container .info span a {
   color: #000000;
   text-decoration: none;
-}
-.container .info span .fa {
-  color: #EF3B3A;
-}
-body {
-  background: #76b852; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-  background: -moz-linear-gradient(right, #76b852, #8DC26F);
-  background: -o-linear-gradient(right, #76b852, #8DC26F);
-  background: linear-gradient(to left, #76b852, #8DC26F);
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;      
 }
