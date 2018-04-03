@@ -1,35 +1,28 @@
-<form>
+<form #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)">
   <h1>
   Create Profile
   </h1>
   <div>
     <div>
-      <label for='fname'>First Name</label>
-      <input type='text' id='fname' placeholder="Ex. John" required/>
+      <label for='firstName'>First Name</label>
+      <input type='text' name='firstName' #firstName="ngModel" [(ngModel)]="user.firstName"/>
     </div>
     <div>
-      <label for='lname'>Last Name</label>
-      <input type='text' id='lname' placeholder="Smith" required/>
+      <label for='lastName'>Last Name</label>
+      <input type='text' name='lastName' #lastName="ngModel" [(ngModel)]="user.lastName">
     </div>
     <div>
-      <label for='gender'>Gender</label>
-      <div style='margin-top:6px; margin-bottom:10px;'>
-        <input type="radio" name="gender" value="male" checked> Male
-        <input type="radio" name="gender" value="female"> Female
-        <input type="radio" name="gender" value="other"> Other
-      </div>
+      <label for='Email'>Email</label>
+      <input type='text' name='Email' #Email="ngModel" [(ngModel)]="user.Email">
     </div>
+  
     <div>
-      <label for='weight'>Weight</label>
-      <input type='text' id='weight' placeholder="200 lbs"/>
-    </div>
-    <div>
-        <label for='username'>Username</label>
-        <input type='text' id='username' placeholder="SmithJ7" required/>
+        <label for='UserName'>Username</label>
+        <input type='text' name='UserName' #UserName="ngModel" [(ngModel)]="user.UserName" required/>
       </div>
     <div>
         <label for='password'>Password</label>
-        <input type='text' id='password' placeholder="********" required/>
+        <input type='password' name='password' #password="ngModel" [(ngModel)]="user.password"/>
     </div>
     <div>
         <button type='submit'>Submit</button>
