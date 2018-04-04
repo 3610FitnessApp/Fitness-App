@@ -32,6 +32,8 @@ export class NewUserFormComponent implements OnInit {
 
   OnSubmit(form: NgForm) {
     this.userService.registerUser(form.value)
+    alert(this.user.UserName + " registered.")
+    console.log(form.value);
   }
 
 }

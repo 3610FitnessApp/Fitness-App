@@ -19,10 +19,6 @@ export class UserService {
       lastName: user.lastName,
       Password: user.Password,
     }
-
-    let header = new Headers();
-    header.append("Content-Type", "application/json");
-
     return this.http.post(this.rootUrl + '/api/Accounts/Register', body);
   }
  
