@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../models/user.model';
+import { NewUser } from './NewUser.model';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { ToastrService } from 'ngx-toastr';
@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class NewUserFormComponent implements OnInit {
 
-  user: User;
+  newUser: NewUser;
 
   constructor(private userService: UserService, private toastr: ToastrService) { }
 
@@ -21,7 +21,7 @@ export class NewUserFormComponent implements OnInit {
   resetForm(form?: NgForm) {
     if (form != null)
       form.reset();
-      this.user = {
+      this.newUser = {
       UserName: '',
       Password: '',
       Email: '',
@@ -32,7 +32,7 @@ export class NewUserFormComponent implements OnInit {
 
   OnSubmit(form: NgForm) {
     this.userService.registerUser(form.value)
-    alert(this.user.UserName + " registered.")
+    alert(this.newUser.UserName + " registered.")
     console.log(form.value);
   }
 

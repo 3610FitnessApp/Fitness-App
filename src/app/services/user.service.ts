@@ -3,16 +3,16 @@ import { HttpClient } from '@angular/common/http';
 import { Response } from "@angular/http";
 import { Observable} from 'rxjs';
 import 'rxjs/add/operator/map';
-import { User } from '../models/user.model';
+import { NewUser } from '../new-user-form/NewUser.model';
  
 @Injectable()
 export class UserService {
   readonly rootUrl = 'http://localhost:5000';
   constructor(private http: HttpClient) { }
  
-  registerUser(user : User){
+  registerUser(user : NewUser){
     
-    const body: User = {
+    const body: NewUser = {
       UserName: user.UserName,
       Email: user.Email,
       firstName: user.firstName,
