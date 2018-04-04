@@ -14,10 +14,10 @@ export class UserService {
     
     const body: User = {
       UserName: user.UserName,
-      password: user.password,
       Email: user.Email,
       firstName: user.firstName,
-      lastName: user.lastName
+      lastName: user.lastName,
+      Password: user.Password,
     }
 
     let header = new Headers();

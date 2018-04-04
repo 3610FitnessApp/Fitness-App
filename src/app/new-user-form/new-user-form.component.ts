@@ -23,7 +23,7 @@ export class NewUserFormComponent implements OnInit {
       form.reset();
       this.user = {
       UserName: '',
-      password: '',
+      Password: '',
       Email: '',
       firstName: '',
       lastName: ''
@@ -32,15 +32,6 @@ export class NewUserFormComponent implements OnInit {
 
   OnSubmit(form: NgForm) {
     this.userService.registerUser(form.value)
-      .subscribe((data: any) => {
-        if (data.Succeeded == true) {
-          this.resetForm(form);
-          console.log("account created");
-          this.toastr.success("account created");
-        }
-        else
-          console.log('SHIT');
-      });
   }
 
 }

@@ -1,10 +1,12 @@
 <body>
   <div class="login-page">
     <div class="form">
-      <form class="login-form">
-        <input type="text" placeholder="username"/>
-        <input type="password" placeholder="password"/>
-        <button>login</button>
+      <form (submit)="onLogin()" #theForm="ngForm">
+        <input type="text" name="UserName" placeholder="Username" [(ngModel)]="creds.UserName" #UserName="ngModel" required>
+        <div class="text-danger" *ngIf="UserName.invalid && UserName.errors.required">Username is required!</div>
+        <input type="password" name="password" placeholder="Password" [(ngModel)]="creds.password" #password="ngModel" required>
+        <div class="text-danger" *ngIf="password.invalid && password.errors.required">Password is required!</div>
+        <button type="submit"[disabled]=theForm.invalid>Login</button>
         <p class="message">Not registered? <a routerLink="register">Create an account</a></p>
       </form>
     </div>
