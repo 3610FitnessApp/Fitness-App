@@ -1,31 +1,27 @@
-<form #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)">
-  <h1>
-  Create Profile
-  </h1>
-  <div>
-    <div>
-      <label for='firstName'>First Name</label>
-      <input type='text' name='firstName' #firstName="ngModel" [(ngModel)]="newUser.firstName"/>
-    </div>
-    <div>
-      <label for='lastName'>Last Name</label>
-      <input type='text' name='lastName' #lastName="ngModel" [(ngModel)]="newUser.lastName">
-    </div>
-    <div>
-      <label for='Email'>Email</label>
-      <input type='text' name='Email' #Email="ngModel" [(ngModel)]="newUser.Email">
-    </div>
-  
-    <div>
-        <label for='UserName'>Username</label>
-        <input type='text' name='UserName' #UserName="ngModel" [(ngModel)]="newUser.UserName" required/>
-      </div>
-    <div>
-        <label for='Password'>Password</label>
-        <input type='password' name='Password' #Password="ngModel" [(ngModel)]="newUser.Password"/>
-    </div>
-    <div>
-        <button type='submit'>Submit</button>
+<body>
+  <div class="login-page">
+    <div class="form">
+      <form #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)">
+
+        <div class="text-danger" *ngIf="firstName.invalid && firstName.touched && firstName.errors.required">First Name is required!</div>
+        <input type="text" name="firstName" placeholder="First Name" #firstName="ngModel" [(ngModel)]="newUser.firstName" required>
+
+                <div class="text-danger" *ngIf="lastName.invalid && lastName.touched && lastName.errors.required">Last Name is required!</div>
+        <input type="text" name="lastName" placeholder="Last Name" #lastName="ngModel" [(ngModel)]="newUser.lastName" required>
+
+        <div class="text-danger" *ngIf="Email.invalid && Email.touched &&  Email.errors.required">Email is required!</div>
+        <input type="text" name="Email" placeholder="Email" #Email="ngModel" [(ngModel)]="newUser.Email" required>
+
+                <div class="text-danger" *ngIf="UserName.invalid && UserName.touched &&  UserName.errors.required">Username is required!</div>
+        <input type="text" name="UserName" placeholder="Username" #UserName="ngModel" [(ngModel)]="newUser.UserName" required>
+        
+        <div class="text-danger" *ngIf="Password.invalid && Password.touched &&  Password.errors.required">Password is required!</div>
+        <input type="password" name="Password" placeholder="Password" #Password="ngModel" [(ngModel)]="newUser.Password" required>
+        
+        <button type="submit"[disabled]=userRegistrationForm.invalid>Register</button>
+      
+      </form>
+    
     </div>
   </div>
-</form>
+  </body>

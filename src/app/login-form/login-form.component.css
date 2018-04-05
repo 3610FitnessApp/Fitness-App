@@ -26,6 +26,16 @@
   box-sizing: border-box;
   font-size: 14px;
 }
+
+.form button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 .form button {
   font-family: "Open Sans", sans-serif;
   text-transform: uppercase;
