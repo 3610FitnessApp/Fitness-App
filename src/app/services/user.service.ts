@@ -4,11 +4,15 @@ import { Response } from "@angular/http";
 import { Observable} from 'rxjs';
 import 'rxjs/add/operator/map';
 import { NewUser } from '../new-user-form/NewUser.model';
+import { LoginUser } from '../login-form/LoginUser.model';
  
 @Injectable()
 export class UserService {
   readonly rootUrl = 'http://localhost:5000';
   constructor(private http: HttpClient) { }
+
+  private token: string;
+  private tokenExpiration: Date;
  
   registerUser(user : NewUser){
     
@@ -29,4 +33,21 @@ export class UserService {
  
     });
   }
+
+  login (user: LoginUser): Observable<boolean> {
+    
+    const body: LoginUser = {
+      UserName: user.UserName,
+      Password: user.Password
+    }
+
+    return this.http.post(this.rootUrl + '/api/Accounts/Login', body)
+    .map((data: any) => {
+      this.token = data.token;
+      this.tokenExpiration = data.expiration;
+      return true;
+    });
+
+  }
 }
+
