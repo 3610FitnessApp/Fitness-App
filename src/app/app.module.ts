@@ -34,7 +34,9 @@ import { ExerciseComponent } from './exercise/exercise.component';
   ],
   imports: [
     BrowserModule,
-    AppRouterModule
+    AppRouterModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

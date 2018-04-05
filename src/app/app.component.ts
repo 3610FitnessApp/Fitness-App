@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Fitness-App';
+  loggedIn=false;
+
+  login()
+  {
+    this.loggedIn = true;
+  }
+
 }
