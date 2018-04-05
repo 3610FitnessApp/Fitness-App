@@ -13,13 +13,20 @@ export class UserService {
   registerUser(user : NewUser){
     
     const body: NewUser = {
-      UserName: user.UserName,
-      Email: user.Email,
       firstName: user.firstName,
       lastName: user.lastName,
-      Password: user.Password,
+      Email: user.Email,
+      UserName: user.UserName,
+      Password: user.Password
     }
-    return this.http.post(this.rootUrl + '/api/Accounts/Register', body);
-  }
+    return this.http.post(this.rootUrl + '/api/Accounts/Register', body)
+    .subscribe((data: any) => {
+      if (data.succeeded == true) {
+        alert(user.UserName + " registered.");
+      } else {
+        alert("registration failed");
+      }
  
+    });
+  }
 }

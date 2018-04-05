@@ -3,6 +3,7 @@ import { NewUser } from './NewUser.model';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { ToastrService } from 'ngx-toastr';
+import { Observable} from 'rxjs';
 @Component({
   selector: 'app-new-user-form',
   templateUrl: './new-user-form.component.html',
@@ -32,8 +33,6 @@ export class NewUserFormComponent implements OnInit {
 
   OnSubmit(form: NgForm) {
     this.userService.registerUser(form.value)
-    alert(this.newUser.UserName + " registered.")
-    console.log(form.value);
   }
 
 }
