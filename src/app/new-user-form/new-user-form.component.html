@@ -1,7 +1,7 @@
 <body>
   <div class="login-page">
     <div class="form">
-      <form #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)">
+      <form #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm); userRegistrationForm.resetForm()">
 
         <div class="text-danger" *ngIf="firstName.invalid && firstName.touched && firstName.errors.required">First Name is required!</div>
         <input type="text" name="firstName" placeholder="First Name" #firstName="ngModel" [(ngModel)]="newUser.firstName" required>
