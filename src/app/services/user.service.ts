@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Response } from "@angular/http";
 import { Observable} from 'rxjs';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 import { NewUser } from '../new-user-form/NewUser.model';
  
 @Injectable()
@@ -20,13 +22,13 @@ export class UserService {
       Password: user.Password
     }
     return this.http.post(this.rootUrl + '/api/Accounts/Register', body)
-    .subscribe((data: any) => {
-      if (data.succeeded == true) {
-        alert(user.UserName + " registered.");
-      } else {
-        alert("registration failed");
-      }
- 
-    });
+    .catch(this._errorHandler);
   }
+
+  private _errorHandler(error: Response){
+    console.log(error);
+    alert ("Error!");
+    return Observable.throw(error || "error on server");
+  }
+
 }

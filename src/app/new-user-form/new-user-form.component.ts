@@ -32,7 +32,13 @@ export class NewUserFormComponent implements OnInit {
   }
 
   OnSubmit(form: NgForm) {
+    var username = form.value.UserName
     this.userService.registerUser(form.value)
+    .subscribe((data: any) => {
+      if (data.succeeded == true) {
+        alert(username + " registered.");
+      } 
+    });
   }
 
 }
