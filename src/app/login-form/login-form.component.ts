@@ -31,13 +31,14 @@ export class LoginFormComponent implements OnInit {
   }
 
   onLogin(form: NgForm) {
+    var username = form.value.UserName
    this.userService.login(form.value)
    .subscribe(success => {
     if (success) {
-      alert ("logged in")
+      alert ("Welcome " + username)
     }
    }, (err : HttpErrorResponse)=>{
-    alert("Failed to login.")
+    alert("Invalid Username or Password.")
   });
   }
 

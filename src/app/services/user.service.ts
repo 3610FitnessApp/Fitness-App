@@ -21,7 +21,7 @@ export class UserService {
     return this.token.length == 0 || this.tokenExpiration > new Date();
   }
  
-  registerUser(user : NewUser){
+  registerUser(user : NewUser): Observable<boolean> {
     
     const body: NewUser = {
       firstName: user.firstName,
@@ -31,6 +31,11 @@ export class UserService {
       Password: user.Password
     }
     return this.http.post(this.rootUrl + '/api/Accounts/Register', body)
+    .map((data: any) => {
+      this.token = data.token;
+      this.tokenExpiration = data.expiration;
+      return true;
+    });
   }
 
   login(creds): Observable<boolean> {
