@@ -9,14 +9,14 @@
                 <div class="text-danger" *ngIf="lastName.invalid && lastName.touched && lastName.errors.required">Last Name is required!</div>
         <input type="text" name="lastName" placeholder="Last Name" #lastName="ngModel" [(ngModel)]="newUser.lastName" required>
 
-        <div class="text-danger" *ngIf="Email.invalid && Email.touched &&  Email.errors.required">Email is required!</div>
-        <input type="text" name="Email" placeholder="Email" #Email="ngModel" [(ngModel)]="newUser.Email" required>
+        <div class="text-danger" *ngIf="Email.invalid && Email.dirty">Invalid email!</div>
+        <input type="text" name="Email" placeholder="Email" #Email="ngModel" [(ngModel)]="newUser.Email" required pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}">
 
                 <div class="text-danger" *ngIf="UserName.invalid && UserName.touched &&  UserName.errors.required">Username is required!</div>
         <input type="text" name="UserName" placeholder="Username" #UserName="ngModel" [(ngModel)]="newUser.UserName" required>
         
-        <div class="text-danger" *ngIf="Password.invalid && Password.touched &&  Password.errors.required">Password is required!</div>
-        <input type="password" name="Password" placeholder="Password" #Password="ngModel" [(ngModel)]="newUser.Password" required>
+        <div class="text-danger" *ngIf="Password.invalid && Password.dirty">Password must be at least 8 characters, contain an uppercase, lowercase, number, and special character</div>
+        <input type="password" name="Password" placeholder="Password" #Password="ngModel" [(ngModel)]="newUser.Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
         
         <button type="submit"[disabled]=userRegistrationForm.invalid>Register</button>
       
