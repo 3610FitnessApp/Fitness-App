@@ -15,6 +15,7 @@ export class UserService {
 
   private token: string = "";
   private tokenExpiration: Date;
+  private loggedIn = false;
 
 
   public get loginRequired(): boolean {
@@ -47,9 +48,25 @@ export class UserService {
     return this.http.post(this.rootUrl + '/api/Accounts/Login', body)
     .map((data: any) => {
       this.token = data.token;
+      localStorage.setItem('token', data.token);
+      
       this.tokenExpiration = data.expiration;
+      localStorage.setItem('tokenExpiration', data.expiration);
+      
+      this.loggedIn = true;
+      
       return true;
     });
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.loggedIn = false;
+    //this._authNavStatusSource.next(false);
+  }
+
+  isLoggedIn() {
+    return this.loggedIn;
   }
 
 

@@ -7,13 +7,15 @@ import { AboutComponent } from '../about/about.component';
 import { LoginFormComponent } from '../login-form/login-form.component';
 import { NotesComponent } from '../notes/notes.component';
 import { NewUserFormComponent } from '../new-user-form/new-user-form.component';
+import { AuthGuard } from '../auth.guard';
 
 const routes: Routes = [
-  { path: 'about', component: AboutComponent},
-  { path: 'log', component: NotesComponent},
+  { path: 'about', component: AboutComponent, canActivate: [AuthGuard]},
+  { path: 'log', component: NotesComponent, canActivate: [AuthGuard]},
   { path: 'register', component: NewUserFormComponent},
-  { path: '', component: HomeComponent, pathMatch: 'full' },
-  { path: '**', component: NotFoundComponent }
+  { path: 'login', component: LoginFormComponent},
+  { path: '', component: HomeComponent, pathMatch: 'full', canActivate: [AuthGuard] },
+  { path: '**', component: NotFoundComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

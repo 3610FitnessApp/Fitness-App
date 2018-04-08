@@ -19,6 +19,7 @@ import { ExerciseComponent } from './exercise/exercise.component';
 import { UserService } from './services/user.service';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthGuard } from './auth.guard';
 
 
 @NgModule({
@@ -44,7 +45,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ToastrModule.forRoot(),
     BrowserAnimationsModule
   ],
-  providers: [UserService],
+  providers: [UserService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

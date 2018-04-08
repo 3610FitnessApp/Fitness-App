@@ -19,6 +19,7 @@
         <input type="password" name="Password" placeholder="Password" #Password="ngModel" [(ngModel)]="newUser.Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
         
         <button type="submit"[disabled]=userRegistrationForm.invalid>Register</button>
+        <p class="message">Already registered? <a routerLink="/">Log in</a></p>
       
       </form>
     
