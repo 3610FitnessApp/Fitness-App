@@ -1,20 +1,18 @@
 <body>
   <div class="login-page">
     <div class="form">
-      <form (submit)="onLogin()" #theForm="ngForm">
+      <form #userLoginForm="ngForm" (ngSubmit)="onLogin(userLoginForm); userLoginForm.resetForm()">
 
-        <div class="text-danger" *ngIf="UserName.invalid && UserName.touched && UserName.errors.required">Username is required!</div>
-        <input type="text" name="UserName" placeholder="Username" [(ngModel)]="creds.UserName" #UserName="ngModel" required>
+        <div class="text-danger" *ngIf="UserName.invalid && UserName.touched &&  UserName.errors.required">Username is required!</div>
+        <input type="text" name="UserName" placeholder="Username" #UserName="ngModel" [(ngModel)]="loginCreds.UserName" required>
         
-        <div class="text-danger" *ngIf="password.invalid && password.touched && password.errors.required">Password is required!</div>
-        <input type="password" name="password" placeholder="Password" [(ngModel)]="creds.password" #password="ngModel" required>
+        <div class="text-danger" *ngIf="Password.invalid && Password.dirty">Password must be at least 8 characters, contain an uppercase, lowercase, number, and special character</div>
+        <input type="password" name="Password" placeholder="Password" #Password="ngModel" [(ngModel)]="loginCreds.Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
         
-        <button type="submit"[disabled]=theForm.invalid>Login</button>
-        <p class="message">Not registered? <a routerLink="register">Create an account</a></p>
+        <button type="submit"[disabled]=userLoginForm.invalid>Login</button>
       
       </form>
     
     </div>
   </div>
   </body>
-  

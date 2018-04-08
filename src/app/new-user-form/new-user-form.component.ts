@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { Observable} from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-new-user-form',
   templateUrl: './new-user-form.component.html',
@@ -37,7 +38,10 @@ export class NewUserFormComponent implements OnInit {
     .subscribe((data: any) => {
       if (data.succeeded == true) {
         alert(username + " registered.");
-      } 
+      }
+    }, 
+    (err : HttpErrorResponse)=>{
+      alert("Failed to register.")
     });
   }
 

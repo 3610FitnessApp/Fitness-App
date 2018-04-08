@@ -6,11 +6,20 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import { NewUser } from '../new-user-form/NewUser.model';
+import { LoginUser } from '../login-form/LoginUser.model';
  
 @Injectable()
 export class UserService {
   readonly rootUrl = 'http://localhost:5000';
   constructor(private http: HttpClient) { }
+
+  private token: string = "";
+  private tokenExpiration: Date;
+
+
+  public get loginRequired(): boolean {
+    return this.token.length == 0 || this.tokenExpiration > new Date();
+  }
  
   registerUser(user : NewUser){
     
@@ -22,13 +31,21 @@ export class UserService {
       Password: user.Password
     }
     return this.http.post(this.rootUrl + '/api/Accounts/Register', body)
-    .catch(this._errorHandler);
   }
 
-  private _errorHandler(error: Response){
-    console.log(error);
-    alert ("Error!");
-    return Observable.throw(error || "error on server");
+  login(creds): Observable<boolean> {
+
+    const body: LoginUser = {
+      UserName: creds.UserName,
+      Password: creds.Password
+    }
+    return this.http.post(this.rootUrl + '/api/Accounts/Login', body)
+    .map((data: any) => {
+      this.token = data.token;
+      this.tokenExpiration = data.expiration;
+      return true;
+    });
   }
+
 
 }
