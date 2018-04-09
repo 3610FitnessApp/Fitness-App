@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AppComponent} from '../app.component'
 import { NgForm } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
@@ -42,5 +43,4 @@ export class LoginFormComponent implements OnInit {
     alert("Invalid Username or Password.")
   });
   }
-
 }
