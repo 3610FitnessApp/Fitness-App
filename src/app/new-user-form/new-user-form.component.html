@@ -1,38 +1,28 @@
-<form>
-  <h1>
-  Create Profile
-  </h1>
-  <div>
-    <div>
-      <label for='fname'>First Name</label>
-      <input type='text' id='fname' placeholder="Ex. John" required/>
-    </div>
-    <div>
-      <label for='lname'>Last Name</label>
-      <input type='text' id='lname' placeholder="Smith" required/>
-    </div>
-    <div>
-      <label for='gender'>Gender</label>
-      <div style='margin-top:6px; margin-bottom:10px;'>
-        <input type="radio" name="gender" value="male" checked> Male
-        <input type="radio" name="gender" value="female"> Female
-        <input type="radio" name="gender" value="other"> Other
-      </div>
-    </div>
-    <div>
-      <label for='weight'>Weight</label>
-      <input type='text' id='weight' placeholder="200 lbs"/>
-    </div>
-    <div>
-        <label for='username'>Username</label>
-        <input type='text' id='username' placeholder="SmithJ7" required/>
-      </div>
-    <div>
-        <label for='password'>Password</label>
-        <input type='text' id='password' placeholder="********" required/>
-    </div>
-    <div>
-        <button type='submit'>Submit</button>
+<body>
+  <div class="login-page">
+    <div class="form">
+      <form #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm); userRegistrationForm.resetForm()">
+
+        <div class="text-danger" *ngIf="firstName.invalid && firstName.touched && firstName.errors.required">First Name is required!</div>
+        <input type="text" name="firstName" placeholder="First Name" #firstName="ngModel" [(ngModel)]="newUser.firstName" required>
+
+                <div class="text-danger" *ngIf="lastName.invalid && lastName.touched && lastName.errors.required">Last Name is required!</div>
+        <input type="text" name="lastName" placeholder="Last Name" #lastName="ngModel" [(ngModel)]="newUser.lastName" required>
+
+        <div class="text-danger" *ngIf="Email.invalid && Email.dirty">Invalid email!</div>
+        <input type="text" name="Email" placeholder="Email" #Email="ngModel" [(ngModel)]="newUser.Email" required pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}">
+
+                <div class="text-danger" *ngIf="UserName.invalid && UserName.touched &&  UserName.errors.required">Username is required!</div>
+        <input type="text" name="UserName" placeholder="Username" #UserName="ngModel" [(ngModel)]="newUser.UserName" required>
+        
+        <div class="text-danger" *ngIf="Password.invalid && Password.dirty">Password must be at least 8 characters, contain an uppercase, lowercase, number, and special character</div>
+        <input type="password" name="Password" placeholder="Password" #Password="ngModel" [(ngModel)]="newUser.Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+        
+        <button type="submit"[disabled]=userRegistrationForm.invalid>Register</button>
+        <p class="message">Already registered? <a routerLink="/">Log in</a></p>
+      
+      </form>
+    
     </div>
   </div>
-</form>
+  </body>
