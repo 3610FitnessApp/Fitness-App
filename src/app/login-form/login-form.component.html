@@ -1,13 +1,18 @@
 <body>
-<div class="login-page">
-  <div class="form">
-    <img src ="assets/logo.png" height="100%" width="100%">
-    <form class="login-form">
-      <input type="text" placeholder="username"/>
-      <input type="password" placeholder="password"/>
-      <button (click)="login()">login</button>
-      <p class="message">Not registered? <a href="register">Create an account</a></p>
-    </form>
+  <div class="login-page">
+    <div class="form">
+      <img src ="assets/logo.png" height="100%" width="100%">
+      <form #userLoginForm="ngForm" (ngSubmit)="onLogin(userLoginForm); userLoginForm.resetForm()">
+
+        <div class="text-danger" *ngIf="UserName.invalid && UserName.touched &&  UserName.errors.required">Username is required!</div>
+        <input type="text" name="UserName" placeholder="Username" #UserName="ngModel" [(ngModel)]="loginCreds.UserName" required>
+        
+        <div class="text-danger" *ngIf="Password.invalid && Password.touched &&  Password.errors.required">Password is required!</div>
+        <input type="password" name="Password" placeholder="Password" #Password="ngModel" [(ngModel)]="loginCreds.Password" required>
+        
+        <button type="submit"[disabled]=userLoginForm.invalid>Login</button>
+        <p class="message">Not registered? <a routerLink="/register">Create an account</a></p>
+      </form>
+    </div>
   </div>
-</div>
 </body>

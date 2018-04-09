@@ -1,9 +1,8 @@
-
-<nav class="vertical-nav-bar">
-  <a routerLink="/" href="#"><i class="fa fa-home">Home</i></a> 
-  <a routerLink = "/calendar"><i class="fa fa-calendar">Calendar</i></a>
-  <a routerLink="/programs"><i class="fa fa-tasks"></i>My Programs</a> 
-  <a routerLink="/about"><i class="fa fa-users"></i>About Us</a> 
-  <a routerLink="/contact"><i class="fa fa-envelope-square">Contact Us</i></a>  
+<nav *ngIf= "this.user.isLoggedIn()" class="vertical-nav-bar">
+    <a routerLink="/" href="#"><i class="fa fa-home">Home</i></a> 
+    <a routerLink = "/calendar"><i class="fa fa-calendar">Calendar</i></a>
+    <a routerLink="/programs"><i class="fa fa-tasks"></i>My Programs</a> 
+    <a routerLink="/about"><i class="fa fa-users"></i>About Us</a> 
+    <a routerLink="/contact"><i class="fa fa-envelope-square">Contact Us</i>
+    <a (click)="this.user.logout()" routerLink='/login'>Logout</a></a>
 </nav>
-
