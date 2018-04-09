@@ -63,6 +63,7 @@ export class UserService {
     localStorage.removeItem('token');
     this.loggedIn = false;
     //this._authNavStatusSource.next(false);
+    alert("Goodbye")
   }
 
   isLoggedIn() {
