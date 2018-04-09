@@ -7,7 +7,7 @@
         <input type="text" name="UserName" placeholder="Username" #UserName="ngModel" [(ngModel)]="loginCreds.UserName" required>
         
         <div class="text-danger" *ngIf="Password.invalid && Password.touched &&  Password.errors.required">Password is required!</div>
-        <input type="password" name="Password" placeholder="Password" #Password="ngModel" [(ngModel)]="loginCreds.Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+        <input type="password" name="Password" placeholder="Password" #Password="ngModel" [(ngModel)]="loginCreds.Password" required>
         
         <button type="submit"[disabled]=userLoginForm.invalid>Login</button>
         <p class="message">Not registered? <a routerLink="/register">Create an account</a></p>

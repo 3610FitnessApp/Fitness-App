@@ -36,6 +36,7 @@ export class LoginFormComponent implements OnInit {
    .subscribe(success => {
     if (success) {
       alert ("Welcome " + username)
+      this.router.navigate(['/']);
     }
    }, (err : HttpErrorResponse)=>{
     alert("Invalid Username or Password.")

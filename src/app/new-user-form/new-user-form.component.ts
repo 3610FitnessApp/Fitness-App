@@ -5,6 +5,8 @@ import { UserService } from '../services/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { Observable} from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-new-user-form',
   templateUrl: './new-user-form.component.html',
@@ -14,7 +16,7 @@ export class NewUserFormComponent implements OnInit {
 
   newUser: NewUser;
 
-  constructor(private userService: UserService, private toastr: ToastrService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
     this.resetForm();
@@ -38,6 +40,7 @@ export class NewUserFormComponent implements OnInit {
     .subscribe(success => {
       if (success) {
         alert (username + " registered.")
+        this.router.navigate(['/login']);
       }
      }, (err : HttpErrorResponse)=>{
       alert("Failed to register.")

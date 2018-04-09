@@ -7,6 +7,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import { NewUser } from '../new-user-form/NewUser.model';
 import { LoginUser } from '../login-form/LoginUser.model';
+import { Router } from '@angular/router';
  
 @Injectable()
 export class UserService {
