@@ -2,6 +2,7 @@
   <div class="login-page">
     <div class="form">
       <form #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm); userRegistrationForm.resetForm()">
+        <img src ="assets/logo.png" height="100%" width="100%">
 
         <div class="text-danger" *ngIf="firstName.invalid && firstName.touched && firstName.errors.required">First Name is required!</div>
         <input type="text" name="firstName" placeholder="First Name" #firstName="ngModel" [(ngModel)]="newUser.firstName" required>
