@@ -9,6 +9,17 @@ body {
     -moz-osx-font-smoothing: grayscale;
     overflow-x:hidden;      
   }
+  app-nav-bar, .main{
+		-webkit-transition: margin 200ms ease-out;
+	    -moz-transition: margin 200ms ease-out;
+	    -o-transition: margin 200ms ease-out;
+	    transition: margin 200ms ease-out;
+	}
+
+	/* Add gap to nav and right windows.*/
+	.main{
+		padding: 10px 10px 0 10px;
+	}
 #wrapper{
     padding-left: 0;
     -webkit-transition: all 0.6s ease;
@@ -51,4 +62,27 @@ body {
 #wrapper.toggled #page-content-wrapper {
   position: absolute;
   margin-left:-250px;
+}
+@media (min-width: 768px) {
+
+  /*Allow main to be next to Nav*/
+  .main{
+    position: absolute;
+    width: calc(100% - 40px); /*keeps 100% minus nav size*/
+    margin-left: 40px;
+    float: right;
+  }
+    /*lets nav bar to be showed on mouseover*/
+    app-nav-bar + .main{
+      margin-left: 200px;
+    }
+}
+
+@media (min-width: 1330px) {
+
+  /*Allow main to be next to Nav*/
+  .main{
+    width: calc(100% - 200px); /*keeps 100% minus nav size*/
+    margin-left: 200px;
+  }
 }

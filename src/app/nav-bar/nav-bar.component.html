@@ -1,8 +1,24 @@
-<nav *ngIf= "this.user.isLoggedIn()" class="vertical-nav-bar">
-    <a routerLink="/" href="#"><i class="fa fa-home">Home</i></a> 
-    <a routerLink = "/calendar"><i class="fa fa-calendar">Calendar</i></a>
-    <a routerLink="/programs"><i class="fa fa-tasks"></i>My Programs</a> 
-    <a routerLink="/about"><i class="fa fa-users"></i>About Us</a> 
-    <a routerLink="/contact"><i class="fa fa-envelope-square">Contact Us</i>
-    <a (click)="this.user.logout()" routerLink='/login'>Logout</a></a>
-</nav>
+
+<nav class="vertical-nav-bar navbar navbar-inverse sidebar">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1" class="logo-button">
+                        <img class="navbar-brand" src="../../assets/logononame.png">
+               
+                </button>
+               
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+    
+                <ul class="nav navbar-nav">
+                      <li><a routerLink="/" href="#">Home<i class="fa fa-home pull-right hidden-xs showopacity"></i></a> </li>
+                      <li><a routerLink = "/calendar">Calendar<i class="fa fa-calendar pull-right hidden-xs showopacity"></i></a></li>
+                      <li><a routerLink="/programs">My Programs<i class="fa fa-tasks pull-right hidden-xs showopacity"></i></a></li> 
+                     <li><a routerLink="/about">About Us<i class="fa fa-users pull-right hidden-xs showopacity"></i></a></li>
+                      <li>  <a routerLink="/contact">Contact Us<i class="fa fa-envelope-square pull-right hidden-xs showopacity"></i></a></li>
+                       <li> <i><a (click)="this.user.logout()" routerLink='/login'>Logout</a></i></li>
+            
+                </ul>
+        </div>
+    </nav>
