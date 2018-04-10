@@ -20,7 +20,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuard } from './auth.guard';
 import { CalendarComponent } from './calendar/calendar.component';
-import { MyProgramComponent } from './my-program/my-program.component';
+import { MyWorkoutsComponent} from './my-workouts/my-workouts.component';
+
 
 
 @NgModule({
@@ -37,7 +38,7 @@ import { MyProgramComponent } from './my-program/my-program.component';
     WorkoutComponent,
     ExerciseComponent,
     CalendarComponent,
-    MyProgramComponent,
+    MyWorkoutsComponent,
   ],
   imports: [
     BrowserModule,
