@@ -7,9 +7,13 @@ import { AboutComponent } from '../about/about.component';
 import { LoginFormComponent } from '../login-form/login-form.component';
 import { NewUserFormComponent } from '../new-user-form/new-user-form.component';
 import { AuthGuard } from '../auth.guard';
+import { CalendarComponent } from '../calendar/calendar.component';
+import { MyProgramComponent } from '../my-program/my-program.component';
 
 const routes: Routes = [
   { path: 'about', component: AboutComponent, canActivate: [AuthGuard]},
+  { path: 'calendar', component: CalendarComponent, canActivate: [AuthGuard]},
+  { path: 'programs', component: MyProgramComponent, canActivate: [AuthGuard]},
   { path: 'register', component: NewUserFormComponent},
   { path: 'login', component: LoginFormComponent},
   { path: '', component: HomeComponent, pathMatch: 'full', canActivate: [AuthGuard] },
