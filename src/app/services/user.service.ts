@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
  
 @Injectable()
 export class UserService {
-  readonly rootUrl = 'http://localhost:5000';
+  readonly rootUrl = 'https://3610fitnessapp-exercise-api.azurewebsites.net';
   constructor(private http: HttpClient) { }
 
   private token: string = "";
