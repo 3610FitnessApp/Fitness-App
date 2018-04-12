@@ -16,8 +16,6 @@ export class ExerciseService {
    token: string = localStorage.getItem("token");
 
   postExercise(exercise : PostExercise): Observable<boolean> {
-
-    alert(this.token)
     
     const body: PostExercise = {
       exercise: exercise.exercise,
@@ -28,9 +26,9 @@ export class ExerciseService {
       ExerciseDate: exercise.ExerciseDate
     }
 
-    let header = new HttpHeaders();
-    //header.set('Content-Type', 'application/json');
-    //header.set('Authorization', 'Bearer ' + this.token);
+    let header = new HttpHeaders()
+    .set('Content-Type', 'application/json')
+    .set('Authorization', 'Bearer ' + this.token);
 
 
     return this.http.post(this.rootUrl + '/api/ExerciseInstances', body, {headers: header})
