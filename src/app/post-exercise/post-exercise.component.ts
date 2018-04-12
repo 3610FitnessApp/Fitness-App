@@ -15,12 +15,21 @@ import { ExerciseInput } from './ExerciseInput.model';
 export class PostExerciseComponent implements OnInit {
 
 postExercise: PostExercise;
-public exercises: ExerciseInput[];
+public exercises: ExerciseInput[] = [];
 
 constructor(private exerciseService: ExerciseService, private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.resetForm();
+    this.exerciseService.getExerciseModels()
+      .subscribe(success => {
+        if (success) {
+          console.log("success")
+          this.exercises = this.exerciseService.exercises;
+          console.log("success")
+          console.log(this.exercises);
+        }
+      })
   }
 
   resetForm(form?: NgForm) {
@@ -34,11 +43,6 @@ constructor(private exerciseService: ExerciseService, private router: Router) { 
         userName: localStorage.getItem("username"),
         ExerciseDate: ""
       }
-  }
-
-  getExercises() {
-    this.exerciseService.getExerciseModels()
-    .subscribe(exercises => this.exercises = exercises);
   }
 
   OnSubmit(form: NgForm) {

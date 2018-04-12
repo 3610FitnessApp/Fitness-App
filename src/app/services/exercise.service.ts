@@ -15,6 +15,7 @@ export class ExerciseService {
   constructor(private http: HttpClient) { }
 
    token: string = localStorage.getItem("token");
+   public exercises: ExerciseInput[] = [];
 
   postExercise(exercise : PostExercise): Observable<boolean> {
     
@@ -38,12 +39,12 @@ export class ExerciseService {
     });
   }
 
-  getExerciseModels(): Observable<ExerciseInput[]> {
-    return this.http.get<{exercises: ExerciseInput[]}>(this.rootUrl + '/api/Exercises')
-    .map(res => res)
-    .map(res => <ExerciseInput[]>res.exercises);
-
-
+  getExerciseModels() {
+    return this.http.get(this.rootUrl + '/api/Exercises')
+    .map((data: any[]) => {
+      this.exercises = data;
+      return true;
+    });
   }
 
 
