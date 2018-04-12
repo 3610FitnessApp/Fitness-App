@@ -1,0 +1,29 @@
+.parallax {
+    /* The image used */
+    background-image: url("../../assets/aboutus.png");
+
+    /* Set a specific height */
+    min-height: 650px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: -1%;
+}
+
+.centered {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h1, .h1 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    transform: translate(0%, 125%);
+    font-size:11rem;
+    text-align:center;
+}
