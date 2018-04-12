@@ -7,6 +7,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import { Router } from '@angular/router';
 import { PostExercise } from '../post-exercise/PostExercise.model';
+import { ExerciseInput } from '../post-exercise/ExerciseInput.model';
  
 @Injectable()
 export class ExerciseService {
@@ -35,6 +36,14 @@ export class ExerciseService {
     .map((data: any) => {
       return true;
     });
+  }
+
+  getExerciseModels(): Observable<ExerciseInput[]> {
+    return this.http.get<{exercises: ExerciseInput[]}>(this.rootUrl + '/api/Exercises')
+    .map(res => res)
+    .map(res => <ExerciseInput[]>res.exercises);
+
+
   }
 
 
