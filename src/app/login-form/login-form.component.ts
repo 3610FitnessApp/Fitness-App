@@ -37,6 +37,7 @@ export class LoginFormComponent implements OnInit {
    .subscribe(success => {
     if (success) {
       alert ("Welcome " + username)
+      localStorage.setItem('username', username);
       this.router.navigate(['/']);
     }
    }, (err : HttpErrorResponse)=>{

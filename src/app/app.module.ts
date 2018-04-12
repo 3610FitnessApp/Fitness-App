@@ -14,13 +14,14 @@ import { HeaderComponent } from './header/header.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { NewUserFormComponent } from './new-user-form/new-user-form.component';
 import { WorkoutComponent } from './workout/workout.component';
-import { ExerciseComponent } from './exercise/exercise.component';
+import { PostExerciseComponent } from './post-exercise/post-exercise.component';
 import { UserService } from './services/user.service';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuard } from './auth.guard';
 import { CalendarComponent } from './calendar/calendar.component';
 import { MyWorkoutsComponent} from './my-workouts/my-workouts.component';
+import { ExerciseService } from './services/exercise.service';
 
 
 
@@ -36,7 +37,7 @@ import { MyWorkoutsComponent} from './my-workouts/my-workouts.component';
     LoginFormComponent,
     NewUserFormComponent,
     WorkoutComponent,
-    ExerciseComponent,
+    PostExerciseComponent,
     CalendarComponent,
     MyWorkoutsComponent,
   ],
@@ -48,7 +49,7 @@ import { MyWorkoutsComponent} from './my-workouts/my-workouts.component';
     ToastrModule.forRoot(),
     BrowserAnimationsModule
   ],
-  providers: [UserService, AuthGuard],
+  providers: [UserService, ExerciseService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

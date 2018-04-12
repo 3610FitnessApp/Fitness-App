@@ -1,0 +1,22 @@
+<body>
+  <div class="login-page">
+    <div class="form">
+      <form #postExerciseForm="ngForm" (ngSubmit)="OnSubmit(postExerciseForm); postExerciseForm.resetForm()">
+
+        <input type="text" name="ExerciseDate" placeholder="Date" #ExerciseDate="ngModel" [(ngModel)]="postExercise.ExerciseDate" required>
+
+        <input type="text" name="exercise" placeholder="Exercise" #exercise="ngModel" [(ngModel)]="postExercise.exercise" required>
+             
+        <input type="text" name="weight" placeholder="Weight" #weight="ngModel" [(ngModel)]="postExercise.weight" required>
+
+        <input type="text" name="reps" placeholder="Reps" #reps="ngModel" [(ngModel)]="postExercise.reps" required>
+
+        <input type="text" name="sets" placeholder="Sets" #sets="ngModel" [(ngModel)]="postExercise.sets" required>
+        
+        <button type="submit"[disabled]=postExercise.invalid>Log</button>
+      
+      </form>
+    
+    </div>
+  </div>
+  </body>
