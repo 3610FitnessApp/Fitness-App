@@ -4,8 +4,13 @@
       <form #postExerciseForm="ngForm" (ngSubmit)="OnSubmit(postExerciseForm); postExerciseForm.resetForm()">
 
         <input type="text" name="ExerciseDate" placeholder="Date" #ExerciseDate="ngModel" [(ngModel)]="postExercise.ExerciseDate" required>
-
-        <input type="text" name="exercise" placeholder="Exercise" #exercise="ngModel" [(ngModel)]="postExercise.exercise" required>
+        <select required name="exercise" #exercise="ngModel"  class="form-control" [(ngModel)]="postExercise.exercise">  
+          <option value="undefined">Please select an Exercise</option>  
+          <option *ngFor="let exercise of exercises"  
+            [ngValue]="exercise.name">  
+        {{exercise.name}}  
+          </option>  
+        </select>  
              
         <input type="text" name="weight" placeholder="Weight" #weight="ngModel" [(ngModel)]="postExercise.weight" required>
 
@@ -19,4 +24,14 @@
     
     </div>
   </div>
+  </body>
+
+  <body>
+    <li *ngFor="let exercise of exercises">
+      <span>
+      {{exercise.name}} 
+      </span>
+    </li>
+
+
   </body>
