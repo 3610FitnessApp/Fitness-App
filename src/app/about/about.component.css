@@ -13,9 +13,48 @@
     margin-bottom: -1%;
 }
 
+div{
+    color: black;
+}
+
+.thumbnail .caption {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.subcaption {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size:1rem;
+}
+
+.thumbnail {
+    display: block;
+    padding: 4px;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+}
+
 .centered {
     position: absolute;
     top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.centeredimg {
+    position: absolute;
+    top:33%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
