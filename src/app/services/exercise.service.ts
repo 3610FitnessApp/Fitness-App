@@ -8,6 +8,7 @@ import 'rxjs/add/observable/throw';
 import { Router } from '@angular/router';
 import { PostExercise } from '../post-exercise/PostExercise.model';
 import { ExerciseInput } from '../post-exercise/ExerciseInput.model';
+import { ExerciseInstance } from '../post-exercise/ExerciseInstance.model';
  
 @Injectable()
 export class ExerciseService {
@@ -16,6 +17,7 @@ export class ExerciseService {
 
    token: string = localStorage.getItem("token");
    public exercises: ExerciseInput[] = [];
+   public exerciseInstances: ExerciseInstance[] = [];
 
   postExercise(exercise : PostExercise): Observable<boolean> {
     
@@ -39,6 +41,18 @@ export class ExerciseService {
     });
   }
 
+  getExerciseInstances() {
+    let header = new HttpHeaders()
+    .set('Content-Type', 'application/json')
+    .set('Authorization', 'Bearer ' + this.token);
+    return this.http.get(this.rootUrl + '/api/ExerciseInstances/' + localStorage.getItem("username"), {headers: header})
+    .map((data: any[]) => {
+      this.exerciseInstances = data;
+      return true;
+    });
+  }
+
+
   getExerciseModels() {
     return this.http.get(this.rootUrl + '/api/Exercises')
     .map((data: any[]) => {
@@ -46,8 +60,6 @@ export class ExerciseService {
       return true;
     });
   }
-
-
 
 
 }
