@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
-.form input select{
+.form input{
   font-family: "Open Sans", sans-serif;
   outline: 0;
   background: #f2f2f2;
@@ -10,6 +10,9 @@
   padding: 15px;
   box-sizing: border-box;
   font-size: 14px;
+}
+.form select{
+  margin: 0 0 15px;
 }
 .form button {
   font-family: "Open Sans", sans-serif;
@@ -81,10 +84,6 @@ label{
   width:25%; 
   text-align: right; 
   margin-right: 10px; 
-} 
-
-form{ 
-  width:50%; 
 } 
 
 /* Add Animation */ 

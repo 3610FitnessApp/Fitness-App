@@ -1,4 +1,4 @@
-<div class="form modal-content">
+<div class="form modal-content" style="display:none">
   <form #postExerciseForm="ngForm" (ngSubmit)="OnSubmit(postExerciseForm); postExerciseForm.resetForm()">
         <div class="modal-header"> 
           <h2>Add Exercise</h2> 
@@ -6,7 +6,7 @@
         <div class="modal-body"> 
           <input type="text" name="ExerciseDate" placeholder="Date" #ExerciseDate="ngModel" [(ngModel)]="postExercise.ExerciseDate" required>
           <select required name="exercise" #exercise="ngModel"  class="form-control" [(ngModel)]="postExercise.exercise">  
-            <option value="undefined">Please select an Exercise</option>  
+            <option value="" selected>Please select an Exercise</option>  
             <option *ngFor="let exercise of exercises"  
               [ngValue]="exercise.name">  
           {{exercise.name}}  
@@ -27,9 +27,7 @@
 </div>
 
   <body>
-    <li *ngFor="let exerciseInstances of exerciseInstances">
-      <span>
+    <div class="col-lg-4" *ngFor="let exerciseInstances of exerciseInstances">
       {{exerciseInstances.exercise.name}}
-      </span>
-    </li>
+    </div>
   </body>
