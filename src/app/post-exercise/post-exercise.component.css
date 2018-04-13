@@ -1,21 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
-.register-page {
-  width: 360px;
-  padding: 8% 0 0;
-  margin: auto;
-}
-.form {
-  position: relative;
-  z-index: 1;
-  background: #919090;
-  max-width: 360px;
-  margin: 0 auto 100px;
-  padding: 45px;
-  text-align: center;
- 
-}
-.form input {
+.form input select{
   font-family: "Open Sans", sans-serif;
   outline: 0;
   background: #f2f2f2;
@@ -61,37 +46,50 @@ button[disabled]{
   color: #FFFFFF;
   text-decoration: none;
 }
-.form .register-form {
-  display: none;
-}
-.container {
-  position: relative;
-  z-index: 1;
-  max-width: 300px;
-  margin: 0 auto;
-}
-.container:before, .container:after {
-  content: "";
-  display: block;
-  clear: both;
-}
-.container .info {
-  margin: 50px auto;
-  text-align: center;
-}
-.container .info h1 {
-  margin: 0 0 15px;
-  padding: 0;
-  font-size: 36px;
-  font-weight: 300;
-  color: #1a1a1a;
-}
-.container .info span {
-  color: #4d4d4d;
-  font-size: 12px;
-}
-.container .info span a {
-  color: #000000;
-  text-decoration: none;
-}
+
+/* Modal Header */ 
+.modal-header { 
+  padding: 2px 16px; 
+  background-color: #919090; 
+  color: white; 
+} 
+
+/* Modal Body */ 
+.modal-body {padding: 16px 16px;} 
+
+/* Modal Footer */ 
+.modal-footer { 
+  padding: 2px 16px; 
+  background-color: #919090; 
+  color: white; 
+} 
+
+/* Modal Content */ 
+.modal-content { 
+  position: relative; 
+  background-color: #919090; 
+  margin: 30%; 
+  padding: 0; 
+  border: 1px solid #888; 
+  width: 50%; 
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19); 
+  animation-name: animatetop; 
+  animation-duration: 0.4s 
+} 
+
+label{ 
+  width:25%; 
+  text-align: right; 
+  margin-right: 10px; 
+} 
+
+form{ 
+  width:50%; 
+} 
+
+/* Add Animation */ 
+@keyframes animatetop { 
+  from {top: -50%; opacity: 0} 
+  to {top: 0; opacity: 1} 
+} 
 
