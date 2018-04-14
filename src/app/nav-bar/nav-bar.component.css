@@ -3,13 +3,24 @@
     margin: 0;
     padding: 0;
   }
+  .navbar-nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	flex-direction: row;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
 
   .vertical-nav-bar {
     background-color: #919090;
     position: fixed;
     z-index: 1;
     top: 0;
-    left: 0;
+	left: 0;
     overflow-x: hidden;
   }
   .logo-button
