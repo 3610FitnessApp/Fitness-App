@@ -27,7 +27,15 @@
 </div>
 
   <body>
-    <div class="col-lg-4" *ngFor="let exerciseInstances of exerciseInstances">
-      {{exerciseInstances.exercise.name}}
+    <div class='row'>
+      <div class="col-lg-3 exercise-obj" *ngFor="let exercise of exerciseInstances">
+        <h4>{{exercise.exercise.name}}</h4>
+        <span>{{exercise.sets}} X {{exercise.reps}}</span><br>
+        <span>{{exercise.weight}} lbs.</span><br>
+        <button>Edit Exercise</button>
+      </div>
+      <div class="col-lg-3 exercise-obj">
+        <h4>Add Exercise</h4>
+      </div>
     </div>
   </body>

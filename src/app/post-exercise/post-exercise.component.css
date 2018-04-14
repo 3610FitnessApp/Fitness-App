@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
+.exercise-obj{
+  box-shadow: 5px 5px #666666;
+}
 .form input{
   font-family: "Open Sans", sans-serif;
   outline: 0;
@@ -14,7 +17,7 @@
 .form select{
   margin: 0 0 15px;
 }
-.form button {
+button {
   font-family: "Open Sans", sans-serif;
   text-transform: uppercase;
   outline: 0;
@@ -37,7 +40,7 @@ button[disabled]{
   pointer-events: none;
 }
 
-.form button:hover,.form button:active,.form button:focus {
+button:hover {
   background: #0B0c10;
 }
 .form .message {
@@ -56,6 +59,14 @@ button[disabled]{
   background-color: #919090; 
   color: white; 
 } 
+
+.exercise-obj {
+  background-color: #919090;
+  text-align: center;
+  height: 150px;
+  border: 2px solid #A2482E;
+  margin: 10px;
+}
 
 /* Modal Body */ 
 .modal-body {padding: 16px 16px;} 
