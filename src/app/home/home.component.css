@@ -227,3 +227,7 @@ font-family: "Open Sans", sans-serif;
 	section{
 		padding-left: 15px;
 	}
+
+	.move{
+		margin-left:20%;
+	  }

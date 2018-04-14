@@ -21,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuard } from './auth.guard';
 import { CalendarComponent } from './calendar/calendar.component';
 import { MyWorkoutsComponent} from './my-workouts/my-workouts.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 
@@ -39,6 +40,7 @@ import { MyWorkoutsComponent} from './my-workouts/my-workouts.component';
     ExerciseComponent,
     CalendarComponent,
     MyWorkoutsComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
