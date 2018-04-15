@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+.exercise-obj{
+  box-shadow: 5px 5px #666666;
+}
+.form input{
+  font-family: "Open Sans", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 75%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form select{
+  margin: 0 0 15px;
+  width:100%;
+}
+button {
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #A2482E;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+button:hover {
+  background: #0B0c10;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #B7B7B6;
+  font-size: 12px;
+}
+.form .message a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+/* Modal Header */ 
+.modal-header { 
+  padding: 2px 16px; 
+  background-color: #919090; 
+  color: white; 
+} 
+
+.exercise-obj {
+  background-color: #919090;
+  text-align: center;
+  height: 175px;
+  border: 2px solid #A2482E;
+  margin: 10px;
+}
+
+/* Modal Body */ 
+.modal-body {padding: 16px 16px;} 
+
+/* Modal Footer */ 
+.modal-footer {
+  background-color: #919090; 
+  color: white; 
+} 
+
+/* Modal Content */ 
+.modal-content { 
+  position: relative; 
+  background-color: #919090;
+  padding: 0; 
+  border: 1px solid #888; 
+  width: 66%; 
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19); 
+  animation-name: animatetop; 
+  animation-duration: 0.4s 
+} 
+
+label{ 
+  width:20%; 
+  text-align: right; 
+  margin-right: 10px; 
+} 
+
+/* Add Animation */ 
+@keyframes animatetop { 
+  from {top: -50%; opacity: 0} 
+  to {top: 0; opacity: 1} 
+} 
+
+.move{
+		margin-left:20%;
+    }
+.container{
+  margin-top:2.5%;
+}

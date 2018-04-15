@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
  
 @Injectable()
 export class UserService {
-  readonly rootUrl = 'https://3610fitnessapp-exercise-api.azurewebsites.net';
+  readonly rootUrl = 'http://localhost:5000';
   constructor(private http: HttpClient) { }
 
   private token: string = "";
@@ -62,6 +62,8 @@ export class UserService {
 
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('username');
+    localStorage.removeItem('tokenExpiration');
     this.loggedIn = false;
     //this._authNavStatusSource.next(false);
     alert("Goodbye")

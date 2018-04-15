@@ -9,6 +9,7 @@ import { NewUserFormComponent } from '../new-user-form/new-user-form.component';
 import { AuthGuard } from '../auth.guard';
 import { CalendarComponent } from '../calendar/calendar.component';
 import { MyWorkoutsComponent } from '../my-workouts/my-workouts.component';
+import { PostExerciseComponent } from '../post-exercise/post-exercise.component';
 import { ContactComponent } from '../contact/contact.component'
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent, canActivate: [AuthGuard] },
   { path: 'calendar', component: CalendarComponent, canActivate: [AuthGuard]},
   { path: 'workouts', component: MyWorkoutsComponent, canActivate: [AuthGuard]},
+  { path: 'postexercise', component: PostExerciseComponent, canActivate: [AuthGuard]},
   { path: 'register', component: NewUserFormComponent},
   { path: 'login', component: LoginFormComponent},
   { path: '', component: HomeComponent, pathMatch: 'full', canActivate: [AuthGuard] },
