@@ -58,7 +58,7 @@ constructor(private exerciseService: ExerciseService, private router: Router) { 
         sets: "",
         userName: localStorage.getItem("username"),
         ExerciseDate: "",
-        id: null
+        exerciseInstanceId: null
       }
   }
 
@@ -70,7 +70,7 @@ constructor(private exerciseService: ExerciseService, private router: Router) { 
       sets: exerciseInstance.sets,
       userName: localStorage.getItem("username"),
       ExerciseDate: exerciseDate,
-      id: exerciseId
+      exerciseInstanceId: exerciseId
     }
   }
 
@@ -87,4 +87,18 @@ constructor(private exerciseService: ExerciseService, private router: Router) { 
     this.add_exercise = false;
     this.edit_exercise = false;
     }
+
+    EditExercise(form: NgForm) {
+      this.exerciseService.editExercise(form.value)
+      .subscribe(success => {
+        if (success) {
+          alert ("Exercise updated.")
+          this.router.navigate(['/postexercise']);
+        }
+       }, (err : HttpErrorResponse)=>{
+        alert("Failed to update exercise.")
+      });
+      this.add_exercise = false;
+      this.edit_exercise = false;
+      }
 }

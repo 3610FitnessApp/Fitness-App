@@ -22,7 +22,7 @@
 
               <label class="col-lg-4" for="ExerciseDate">Date: </label><input class="col-lg-8" type="text" name="ExerciseDate" placeholder="Date" #ExerciseDate="ngModel" [(ngModel)]="postExercise.ExerciseDate" required>
               
-              <input type="text" name="id" #id="ngModel" [(ngModel)]="postExercise.id" hidden>
+              <input type="text" name="exerciseInstanceId" #exerciseInstanceId="ngModel" [(ngModel)]="postExercise.exerciseInstanceId" hidden>
               <div style="text-align:center;">
                 <button *ngIf="!postExercise.exercise" style="width:33%" type="submit"[disabled]=postExercise.invalid>Log</button>
                 <button *ngIf="postExercise.exercise" style="width:33%" type="submit"[disabled]=postExercise.invalid>Update</button>
