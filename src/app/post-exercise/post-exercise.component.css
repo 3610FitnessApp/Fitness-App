@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
-.exercise-obj{
-  box-shadow: 5px 5px #666666;
-}
 .form input{
   font-family: "Open Sans", sans-serif;
   outline: 0;
@@ -19,6 +16,7 @@
   width:100%;
 }
 button {
+  border-radius: 20px;
   font-family: "Open Sans", sans-serif;
   text-transform: uppercase;
   outline: 0;
@@ -62,11 +60,13 @@ button:hover {
 } 
 
 .exercise-obj {
+  border-radius: 20px;
   background-color: #919090;
   text-align: center;
   height: 175px;
   border: 2px solid #A2482E;
   margin: 10px;
+  box-shadow: 5px 5px #666666;
 }
 
 /* Modal Body */ 
