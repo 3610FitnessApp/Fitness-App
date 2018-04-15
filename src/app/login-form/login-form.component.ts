@@ -36,7 +36,6 @@ export class LoginFormComponent implements OnInit {
    this.userService.login(form.value)
    .subscribe(success => {
     if (success) {
-      alert ("Welcome " + username)
       localStorage.setItem('username', username);
       this.router.navigate(['/']);
     }

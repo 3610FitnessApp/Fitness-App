@@ -13,6 +13,7 @@ import { ExerciseInstance } from '../post-exercise/ExerciseInstance.model';
 @Injectable()
 export class ExerciseService {
   readonly rootUrl = 'http://localhost:5000';
+  //https://3610fitnessapp-exercise-api.azurewebsites.net
   constructor(private http: HttpClient) { }
 
    token: string = localStorage.getItem("token");
