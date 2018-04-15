@@ -28,7 +28,7 @@ export class ExerciseService {
       sets: exercise.sets,
       userName: localStorage.getItem("username"),
       ExerciseDate: exercise.ExerciseDate,
-      id: exercise.id
+      ExerciseInstanceId: exercise.ExerciseInstanceId
     }
 
     let header = new HttpHeaders()
@@ -37,6 +37,29 @@ export class ExerciseService {
 
 
     return this.http.post(this.rootUrl + '/api/ExerciseInstances', body, {headers: header})
+    .map((data: any) => {
+      return true;
+    });
+  }
+
+  editExercise(exercise : PostExercise): Observable<boolean> {
+    
+    const body: PostExercise = {
+      ExerciseInstanceId: exercise.ExerciseInstanceId,
+      exercise: exercise.exercise,
+      weight: exercise.weight,
+      reps: exercise.reps,
+      sets: exercise.sets,
+      userName: localStorage.getItem("username"),
+      ExerciseDate: exercise.ExerciseDate,
+    }
+
+    let header = new HttpHeaders()
+    .set('Content-Type', 'application/json')
+    .set('Authorization', 'Bearer ' + this.token);
+
+
+    return this.http.post(this.rootUrl + '/api/ExerciseInstances/edit', body, {headers: header})
     .map((data: any) => {
       return true;
     });
