@@ -28,7 +28,7 @@ export class ExerciseService {
       sets: exercise.sets,
       userName: localStorage.getItem("username"),
       ExerciseDate: exercise.ExerciseDate,
-      exerciseInstanceId: exercise.exerciseInstanceId
+      ExerciseInstanceId: exercise.ExerciseInstanceId
     }
 
     let header = new HttpHeaders()
@@ -45,7 +45,7 @@ export class ExerciseService {
   editExercise(exercise : PostExercise): Observable<boolean> {
     
     const body: PostExercise = {
-      exerciseInstanceId: exercise.exerciseInstanceId,
+      ExerciseInstanceId: exercise.ExerciseInstanceId,
       exercise: exercise.exercise,
       weight: exercise.weight,
       reps: exercise.reps,

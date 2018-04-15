@@ -1,11 +1,11 @@
 <div class="container">
       <div class="form move modal-content row" *ngIf="add_exercise || edit_exercise">
         <div class="modal-header"> 
-          <h2 *ngIf="!postExercise.exercise">Add Exercise</h2>
-          <h2 *ngIf="postExercise.exercise">Edit Exercise</h2>
+          <h2 *ngIf="!postExercise.ExerciseInstanceId">Add Exercise</h2>
+          <h2 *ngIf="postExercise.ExerciseInstanceId">Edit Exercise</h2>
         </div> 
         <div class="modal-body"> 
-            <form #postExerciseForm="ngForm" (ngSubmit)="OnSubmit(postExerciseForm); postExerciseForm.resetForm(); this.getExerciseInstances()">
+            <form #postExerciseForm="ngForm" (ngSubmit)="OnSubmit(postExerciseForm);">
               <select required name="exercise" #exercise="ngModel"  class="form-control col-lg-8" style="margin-left:21%" [(ngModel)]="postExercise.exercise">  
                 <option value="" selected>Please select an Exercise</option>  
                 <option *ngFor="let exercise of exercises"  
@@ -22,10 +22,10 @@
 
               <label class="col-lg-4" for="ExerciseDate">Date: </label><input class="col-lg-8" type="text" name="ExerciseDate" placeholder="Date" #ExerciseDate="ngModel" [(ngModel)]="postExercise.ExerciseDate" required>
               
-              <input type="text" name="exerciseInstanceId" #exerciseInstanceId="ngModel" [(ngModel)]="postExercise.exerciseInstanceId" hidden>
+              <input type="text" name="ExerciseInstanceId" #id="ngModel" [(ngModel)]="postExercise.ExerciseInstanceId" hidden>
               <div style="text-align:center;">
-                <button *ngIf="!postExercise.exercise" style="width:33%" type="submit"[disabled]=postExercise.invalid>Log</button>
-                <button *ngIf="postExercise.exercise" style="width:33%" type="submit"[disabled]=postExercise.invalid>Update</button>
+                <button *ngIf="!postExercise.ExerciseInstanceId" style="width:33%" type="submit"[disabled]=postExercise.invalid>Log</button>
+                <button *ngIf="postExercise.ExerciseInstanceId" style="width:33%" type="submit"[disabled]=postExercise.invalid>Update</button>
                 <button style="width: 33%;" type="submit" (click)="add_exercise = false; edit_exercise = false; postExerciseForm.resetForm();">Cancel</button>
               </div>
           </form> 

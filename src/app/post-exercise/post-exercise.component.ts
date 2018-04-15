@@ -58,7 +58,7 @@ constructor(private exerciseService: ExerciseService, private router: Router) { 
         sets: "",
         userName: localStorage.getItem("username"),
         ExerciseDate: "",
-        exerciseInstanceId: null
+        ExerciseInstanceId: 0
       }
   }
 
@@ -70,23 +70,33 @@ constructor(private exerciseService: ExerciseService, private router: Router) { 
       sets: exerciseInstance.sets,
       userName: localStorage.getItem("username"),
       ExerciseDate: exerciseDate,
-      exerciseInstanceId: exerciseId
+      ExerciseInstanceId: exerciseId
     }
   }
 
   OnSubmit(form: NgForm) {
+    if(this.add_exercise){
+      this.PostExercise(form);
+    }else if(this.edit_exercise){
+      this.EditExercise(form);
+    }
+    this.resetForm(form);
+    this.getExerciseInstances()
+    this.add_exercise = false;
+    this.edit_exercise = false;
+  }
+
+  PostExercise(form: NgForm){
     this.exerciseService.postExercise(form.value)
     .subscribe(success => {
       if (success) {
         alert ("Exercise recorded.")
         this.router.navigate(['/postexercise']);
       }
-     }, (err : HttpErrorResponse)=>{
+      }, (err : HttpErrorResponse)=>{
       alert("Failed to register.")
     });
-    this.add_exercise = false;
-    this.edit_exercise = false;
-    }
+  }
 
     EditExercise(form: NgForm) {
       this.exerciseService.editExercise(form.value)
@@ -98,7 +108,5 @@ constructor(private exerciseService: ExerciseService, private router: Router) { 
        }, (err : HttpErrorResponse)=>{
         alert("Failed to update exercise.")
       });
-      this.add_exercise = false;
-      this.edit_exercise = false;
       }
 }
