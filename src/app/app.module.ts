@@ -22,6 +22,7 @@ import { AuthGuard } from './auth.guard';
 import { CalendarComponent } from './calendar/calendar.component';
 import { MyWorkoutsComponent} from './my-workouts/my-workouts.component';
 import { ExerciseService } from './services/exercise.service';
+import { ContactComponent } from './contact/contact.component';
 
 
 
@@ -40,6 +41,7 @@ import { ExerciseService } from './services/exercise.service';
     PostExerciseComponent,
     CalendarComponent,
     MyWorkoutsComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

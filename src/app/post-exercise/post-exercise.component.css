@@ -7,7 +7,7 @@
   font-family: "Open Sans", sans-serif;
   outline: 0;
   background: #f2f2f2;
-  width: 100%;
+  width: 75%;
   border: 0;
   margin: 0 0 15px;
   padding: 15px;
@@ -16,6 +16,7 @@
 }
 .form select{
   margin: 0 0 15px;
+  width:100%;
 }
 button {
   font-family: "Open Sans", sans-serif;
@@ -63,7 +64,7 @@ button:hover {
 .exercise-obj {
   background-color: #919090;
   text-align: center;
-  height: 150px;
+  height: 175px;
   border: 2px solid #A2482E;
   margin: 10px;
 }
@@ -72,8 +73,7 @@ button:hover {
 .modal-body {padding: 16px 16px;} 
 
 /* Modal Footer */ 
-.modal-footer { 
-  padding: 2px 16px; 
+.modal-footer {
   background-color: #919090; 
   color: white; 
 } 
@@ -81,18 +81,17 @@ button:hover {
 /* Modal Content */ 
 .modal-content { 
   position: relative; 
-  background-color: #919090; 
-  margin: 30%; 
+  background-color: #919090;
   padding: 0; 
   border: 1px solid #888; 
-  width: 50%; 
+  width: 66%; 
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19); 
   animation-name: animatetop; 
   animation-duration: 0.4s 
 } 
 
 label{ 
-  width:25%; 
+  width:20%; 
   text-align: right; 
   margin-right: 10px; 
 } 
@@ -103,3 +102,9 @@ label{
   to {top: 0; opacity: 1} 
 } 
 
+.move{
+		margin-left:20%;
+    }
+.container{
+  margin-top:2.5%;
+}

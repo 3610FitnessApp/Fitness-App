@@ -27,7 +27,8 @@ export class ExerciseService {
       reps: exercise.reps,
       sets: exercise.sets,
       userName: localStorage.getItem("username"),
-      ExerciseDate: exercise.ExerciseDate
+      ExerciseDate: exercise.ExerciseDate,
+      id: exercise.id
     }
 
     let header = new HttpHeaders()

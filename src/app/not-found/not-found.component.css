@@ -1,0 +1,11 @@
+.move{
+    margin-left:20%;
+  }
+
+  h2 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    color:#DF691A;
+    transform: translate(0%, 0%);
+    font-size:60px;
+}

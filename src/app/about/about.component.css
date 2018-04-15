@@ -1,0 +1,80 @@
+.parallax {
+    /* The image used */
+    background-image: url("../../assets/aboutus.png");
+
+    /* Set a specific height */
+    min-height: 650px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: -1%;
+}
+
+div{
+    color: black;
+}
+
+.thumbnail .caption {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.subcaption {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size:1rem;
+}
+
+.thumbnail {
+    display: block;
+    padding: 4px;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+}
+
+.centered {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.centeredimg {
+    position: absolute;
+    top:33%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h1, .h1 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    transform: translate(0%, 125%);
+    font-size:11rem;
+    text-align:center;
+}
+
+.move{
+    margin-left:20%;
+  }
+
+p {
+font-size: 15px;
+}  
+
+.pbig {
+    font-size: 20px;
+}  

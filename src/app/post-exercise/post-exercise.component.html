@@ -1,41 +1,49 @@
-<div class="form modal-content" style="display:none">
-  <form #postExerciseForm="ngForm" (ngSubmit)="OnSubmit(postExerciseForm); postExerciseForm.resetForm()">
+<div class="container">
+      <div class="form move modal-content row" *ngIf="add_exercise || edit_exercise">
         <div class="modal-header"> 
-          <h2>Add Exercise</h2> 
+          <h2 *ngIf="!postExercise.exercise">Add Exercise</h2>
+          <h2 *ngIf="postExercise.exercise">Edit Exercise</h2>
         </div> 
         <div class="modal-body"> 
-          <input type="text" name="ExerciseDate" placeholder="Date" #ExerciseDate="ngModel" [(ngModel)]="postExercise.ExerciseDate" required>
-          <select required name="exercise" #exercise="ngModel"  class="form-control" [(ngModel)]="postExercise.exercise">  
-            <option value="" selected>Please select an Exercise</option>  
-            <option *ngFor="let exercise of exercises"  
-              [ngValue]="exercise.name">  
-          {{exercise.name}}  
-            </option>  
-          </select>  
+            <form #postExerciseForm="ngForm" (ngSubmit)="OnSubmit(postExerciseForm); postExerciseForm.resetForm(); this.getExerciseInstances()">
+              <select required name="exercise" #exercise="ngModel"  class="form-control col-lg-8" style="margin-left:21%" [(ngModel)]="postExercise.exercise">  
+                <option value="" selected>Please select an Exercise</option>  
+                <option *ngFor="let exercise of exercises"  
+                  [ngValue]="exercise.name">  
+              {{exercise.name}}  
+                </option>  
+              </select>
+                  
+              <label class="col-lg-4" for="weight">Weight: </label><input class="col-lg-8" type="text" name="weight" placeholder="Weight" #weight="ngModel" [(ngModel)]="postExercise.weight" required>
+  
+              <label class="col-lg-4" for="sets">Sets: </label><input class="col-lg-8" type="text" name="sets" placeholder="Sets" #sets="ngModel" [(ngModel)]="postExercise.sets" required>
+  
+              <label class="col-lg-4" for="reps">Reps: </label><input class="col-lg-8" type="text" name="reps" placeholder="Reps" #reps="ngModel" [(ngModel)]="postExercise.reps" required>
+
+              <label class="col-lg-4" for="ExerciseDate">Date: </label><input class="col-lg-8" type="text" name="ExerciseDate" placeholder="Date" #ExerciseDate="ngModel" [(ngModel)]="postExercise.ExerciseDate" required>
               
-          <input type="text" name="weight" placeholder="Weight" #weight="ngModel" [(ngModel)]="postExercise.weight" required>
-
-          <input type="text" name="reps" placeholder="Reps" #reps="ngModel" [(ngModel)]="postExercise.reps" required>
-
-          <input type="text" name="sets" placeholder="Sets" #sets="ngModel" [(ngModel)]="postExercise.sets" required>
-          
+              <input type="text" name="id" #id="ngModel" [(ngModel)]="postExercise.id" hidden>
+              <div style="text-align:center;">
+                <button *ngIf="!postExercise.exercise" style="width:33%" type="submit"[disabled]=postExercise.invalid>Log</button>
+                <button *ngIf="postExercise.exercise" style="width:33%" type="submit"[disabled]=postExercise.invalid>Update</button>
+                <button style="width: 33%;" type="submit" (click)="add_exercise = false; edit_exercise = false; postExerciseForm.resetForm();">Cancel</button>
+              </div>
+          </form> 
         </div>
-        <div class="modal-footer"> 
-          <button type="submit"[disabled]=postExercise.invalid>Log</button>
-        </div>
-  </form>
-</div>
-
-  <body>
+    </div>
+  <body class="move">
     <div class='row'>
       <div class="col-lg-3 exercise-obj" *ngFor="let exercise of exerciseInstances">
         <h4>{{exercise.exercise.name}}</h4>
+        <span>{{exercise.date}}</span><br>
         <span>{{exercise.sets}} X {{exercise.reps}}</span><br>
         <span>{{exercise.weight}} lbs.</span><br>
-        <button>Edit Exercise</button>
+        <button id="editButton" (click)="edit_exercise = true; onSelect(exercise, exercise.exercise.name, exercise.date, exercise.id);">Edit Exercise</button>
       </div>
       <div class="col-lg-3 exercise-obj">
         <h4>Add Exercise</h4>
+        <button id="addButton" (click)="add_exercise = true">+</button>
       </div>
     </div>
   </body>
+</div>

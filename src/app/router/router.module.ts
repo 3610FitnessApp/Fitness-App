@@ -10,9 +10,11 @@ import { AuthGuard } from '../auth.guard';
 import { CalendarComponent } from '../calendar/calendar.component';
 import { MyWorkoutsComponent } from '../my-workouts/my-workouts.component';
 import { PostExerciseComponent } from '../post-exercise/post-exercise.component';
+import { ContactComponent } from '../contact/contact.component'
 
 const routes: Routes = [
   { path: 'about', component: AboutComponent, canActivate: [AuthGuard]},
+  { path: 'contact', component: ContactComponent, canActivate: [AuthGuard] },
   { path: 'calendar', component: CalendarComponent, canActivate: [AuthGuard]},
   { path: 'workouts', component: MyWorkoutsComponent, canActivate: [AuthGuard]},
   { path: 'postexercise', component: PostExerciseComponent, canActivate: [AuthGuard]},
@@ -20,6 +22,8 @@ const routes: Routes = [
   { path: 'login', component: LoginFormComponent},
   { path: '', component: HomeComponent, pathMatch: 'full', canActivate: [AuthGuard] },
   { path: '**', component: NotFoundComponent, canActivate: [AuthGuard] }
+  
+  
 ];
 
 @NgModule({

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { PostExercise } from './PostExercise.model';
 import { ExerciseService } from '../services/exercise.service';
 import { Router } from '@angular/router';
@@ -20,6 +20,9 @@ public exercises: ExerciseInput[] = [];
 public exerciseInstances: ExerciseInstance[] = [];
 
 constructor(private exerciseService: ExerciseService, private router: Router) { }
+  
+  add_exercise:boolean = false;
+  edit_exercise:boolean = false;
 
   ngOnInit(): void {
     this.resetForm();
@@ -54,8 +57,21 @@ constructor(private exerciseService: ExerciseService, private router: Router) { 
         reps: "",
         sets: "",
         userName: localStorage.getItem("username"),
-        ExerciseDate: ""
+        ExerciseDate: "",
+        id: null
       }
+  }
+
+  onSelect(exerciseInstance: ExerciseInstance, exerciseName: string, exerciseDate: string, exerciseId: number){
+    this.postExercise = {
+      exercise: exerciseName,
+      weight: exerciseInstance.weight,
+      reps: exerciseInstance.reps,
+      sets: exerciseInstance.sets,
+      userName: localStorage.getItem("username"),
+      ExerciseDate: exerciseDate,
+      id: exerciseId
+    }
   }
 
   OnSubmit(form: NgForm) {
@@ -68,6 +84,7 @@ constructor(private exerciseService: ExerciseService, private router: Router) { 
      }, (err : HttpErrorResponse)=>{
       alert("Failed to register.")
     });
+    this.add_exercise = false;
+    this.edit_exercise = false;
     }
-
 }

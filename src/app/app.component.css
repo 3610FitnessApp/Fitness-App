@@ -7,6 +7,7 @@ body {
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    max-width: 100%;
     overflow-x:hidden;      
   }
   app-nav-bar, .main{
@@ -14,12 +15,13 @@ body {
 	    -moz-transition: margin 200ms ease-out;
 	    -o-transition: margin 200ms ease-out;
 	    transition: margin 200ms ease-out;
-	}
-
+  }
+  
+  .move{
+    margin-left:20%;
+  }
 	/* Add gap to nav and right windows.*/
-	.main{
-		padding: 5% 5% 0 5%;
-	}
+
 #wrapper{
     padding-left: 0;
     -webkit-transition: all 0.6s ease;
@@ -64,25 +66,6 @@ body {
   margin-left:-250px;
 }
 @media (min-width: 768px) {
-
-  /*Allow main to be next to Nav*/
-  .main{
-    position: absolute;
-    width: calc(100% - 40px); /*keeps 100% minus nav size*/
-    margin-left: 40px;
-    float: right;
-  }
-    /*lets nav bar to be showed on mouseover*/
-    app-nav-bar + .main{
-      margin-left: 200px;
-    }
 }
-
-@media (min-width: 1330px) {
-
   /*Allow main to be next to Nav*/
-  .main{
-    width: calc(100% - 200px); /*keeps 100% minus nav size*/
-    margin-left: 200px;
-  }
-}
+  

@@ -6,4 +6,5 @@ export class PostExercise {
     sets: string;
     userName: string;
     ExerciseDate: string;
+    id: number;
 }
