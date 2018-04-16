@@ -81,7 +81,7 @@ constructor(private exerciseService: ExerciseService, private router: Router) { 
       this.EditExercise(form);
     }
     this.resetForm(form);
-    this.getExerciseInstances()
+    this.getExerciseInstances();
     this.add_exercise = false;
     this.edit_exercise = false;
   }

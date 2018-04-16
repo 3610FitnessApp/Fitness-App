@@ -5,7 +5,7 @@
           <h2 *ngIf="postExercise.ExerciseInstanceId">Edit Exercise</h2>
         </div> 
         <div class="modal-body"> 
-            <form #postExerciseForm="ngForm" (ngSubmit)="OnSubmit(postExerciseForm);">
+            <form #postExerciseForm="ngForm" (ngSubmit)="OnSubmit(postExerciseForm); this.resetForm(form); this.getExerciseInstances();">
               <select required name="exercise" #exercise="ngModel"  class="form-control col-lg-8" style="margin-left:21%" [(ngModel)]="postExercise.exercise">  
                 <option value="" selected>Please select an Exercise</option>  
                 <option *ngFor="let exercise of exercises"  
